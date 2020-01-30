@@ -1,7 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import RecipeItem from "../components/RecipeItem";
+import RecipeModal from "../components/RecipeModal";
 import { REMOVE_ITEM } from "../actions/Actions";
+
+const openModal = () => {
+  alert("open modal");
+};
 
 const mapStateToProps = state => {
   console.log(state);
@@ -34,6 +39,10 @@ const RecipesList = ({ recipesList, removeItem }) => {
           }}
         />
       ))}
+      <button type="button" onClick={openModal}>
+        Add item
+      </button>
+      <RecipeModal innerComponent={<h2>Test</h2>} />
     </div>
   );
 };
