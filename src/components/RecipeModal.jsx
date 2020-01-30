@@ -1,10 +1,10 @@
 import React from "react";
 
-const RecipeModal = ({ innerComponent }) => {
+const RecipeModal = ({ innerComponent, children }) => {
   return (
     <div>
       Modal
-      {innerComponent}
+      {children}
     </div>
   );
 };
