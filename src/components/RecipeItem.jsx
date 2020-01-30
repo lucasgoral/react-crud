@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { v1 } from "uuid";
 
 const RecipeItem = ({ title, ingredients, remove, edit }) => {
@@ -16,6 +17,13 @@ const RecipeItem = ({ title, ingredients, remove, edit }) => {
       </button>
     </div>
   );
+};
+
+RecipeItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
+  remove: PropTypes.func.isRequired,
+  edit: PropTypes.func.isRequired
 };
 
 export default RecipeItem;
