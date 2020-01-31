@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import AddEditRecipe from "./AddEditRecipe";
+import AddRecipe from "./AddRecipe";
+import EditRecipe from "./EditRecipe";
 import RecipeItem from "../components/RecipeItem";
 import Modal from "../components/Modal";
 import { REMOVE_ITEM } from "../actions/Actions";
@@ -22,17 +23,17 @@ const RecipesList = ({ recipesList, removeItem }) => {
 
   const initialModalState = {
     visible: false,
-    mode: "add",
+    editMode: false,
     itemId: ""
   };
   const [editorState, setEditorlState] = useState(initialModalState);
 
   const openAddItem = () => {
-    setEditorlState({ visible: true, mode: "add" });
+    setEditorlState({ visible: true, editMode: false });
   };
 
   const openEditItem = key => {
-    setEditorlState({ visible: true, mode: "edit", itemId: key });
+    setEditorlState({ visible: true, editMode: true, itemId: key });
   };
 
   const close = () => {
@@ -59,7 +60,11 @@ const RecipesList = ({ recipesList, removeItem }) => {
         Add item
       </button>
       <Modal visible={editorState.visible} close={close}>
-        <AddEditRecipe mode={editorState.mode} itemId={editorState.itemId} />
+        {editorState.editMode ? (
+          <EditRecipe itemId={editorState.itemId} />
+        ) : (
+          <AddRecipe />
+        )}
       </Modal>
     </div>
   );
