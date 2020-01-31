@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import AddEditRecipe from "./AddEditRecipe";
 import RecipeItem from "../components/RecipeItem";
-import RecipeModal from "../components/RecipeModal";
+import Modal from "../components/Modal";
 import { REMOVE_ITEM } from "../actions/Actions";
-
-
-
 
 const mapStateToProps = state => {
   console.log(state);
@@ -22,16 +20,23 @@ const RecipesList = ({ recipesList, removeItem }) => {
   console.log(recipesList);
   // eslint-disable-next-line no-console
 
-
   const initialModalState = {
     visible: false,
-    banana: 'lol'
+    mode: "add",
+    itemId: ""
+  };
+  const [editorState, setEditorlState] = useState(initialModalState);
 
-  }
-  const [modalState, setModalState] = useState(initialModalState);
+  const openAddItem = () => {
+    setEditorlState({ visible: true, mode: "add" });
+  };
 
-  const openModal = () => {
-    setModalState({ visible: !modalState.visible })
+  const openEditItem = key => {
+    setEditorlState({ visible: true, mode: "edit", itemId: key });
+  };
+
+  const close = () => {
+    alert("close");
   };
 
   return (
@@ -46,16 +51,16 @@ const RecipesList = ({ recipesList, removeItem }) => {
             removeItem(item.key);
           }}
           edit={() => {
-            alert("edit");
+            openEditItem(item.key);
           }}
         />
       ))}
-      <button type="button" onClick={openModal}>
+      <button type="button" onClick={openAddItem}>
         Add item
       </button>
-      <RecipeModal>
-        {modalState.visible ? <h2>Visible</h2> : <h2>Invisible</h2>}
-      </RecipeModal>
+      <Modal visible={editorState.visible} close={close}>
+        <AddEditRecipe mode={editorState.mode} itemId={editorState.itemId} />
+      </Modal>
     </div>
   );
 };

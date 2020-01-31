@@ -1,6 +1,6 @@
 import React from "react";
 
-const RecipeModal = ({ innerComponent, children }) => {
+const Modal = ({ innerComponent, children }) => {
   return (
     <div>
       Modal
@@ -9,4 +9,4 @@ const RecipeModal = ({ innerComponent, children }) => {
   );
 };
 
-export default RecipeModal;
+export default Modal;
