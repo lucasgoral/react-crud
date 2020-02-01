@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { v1 } from "uuid";
-import Accordion from "../containers/Accordion";
+import Accordion from "../components/Accordion";
 
 const RecipeItem = ({ title, ingredients, remove, edit }) => {
   return (
