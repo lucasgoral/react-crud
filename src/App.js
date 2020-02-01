@@ -1,12 +1,12 @@
-import React from "react";
-import RecipesList from "./containers/RecipesList";
+import React from 'react';
+import RecipesList from './containers/RecipesList';
 
 function App() {
-  return (
-    <main className="app">
-      <RecipesList />
-    </main>
-  );
+	return (
+		<div className="app">
+			<RecipesList />
+		</div>
+	);
 }
 
 export default App;

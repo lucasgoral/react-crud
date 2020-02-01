@@ -1,5 +1,5 @@
-import "core-js/stable";
-import "core-js/stable/object/entries";
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 import { throttle } from "lodash";
 import React from "react";
 import { Provider } from "react-redux";
