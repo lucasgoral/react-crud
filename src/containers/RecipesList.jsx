@@ -7,7 +7,6 @@ import Modal from "../components/Modal";
 import { REMOVE_ITEM } from "../actions/Actions";
 
 const mapStateToProps = state => {
-
   const { recipesList } = state;
   return { recipesList };
 };
@@ -37,7 +36,6 @@ const RecipesList = ({ recipesList, removeItem }) => {
   };
 
   const close = e => {
-    e.stopPropagation();
     setEditorlState({ visible: false, editMode: false, itemId: "" });
   };
 
@@ -57,14 +55,14 @@ const RecipesList = ({ recipesList, removeItem }) => {
           }}
         />
       ))}
-      <button type="button" className="bt bt-good" onClick={openAddItem}>
+      <button type="button" className="bt bt-good bt-add" onClick={openAddItem}>
         Add item
       </button>
       <Modal visible={editorState.visible} close={close}>
         {editorState.editMode ? (
-          <EditRecipe itemId={editorState.itemId} />
+          <EditRecipe itemId={editorState.itemId} close={close} />
         ) : (
-          <AddRecipe />
+          <AddRecipe close={close} />
         )}
       </Modal>
     </div>

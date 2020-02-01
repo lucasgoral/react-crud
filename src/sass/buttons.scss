@@ -3,31 +3,28 @@
     color: $white;
     border: 0;
     background: $color01;
-    transition: opacity .2s;
-    border-radius: 1.5rem;
-    margin-bottom: 1rem;
+    transition: opacity 0.2s;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
     margin-right: 1rem;
     letter-spacing: 1px;
     font-weight: 600;
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
         opacity: 0.9;
     }
-
     &.bt-good {
         background: $good;
-        
     }
-
     &.bt-danger {
         background: $danger;
     }
-  
 }
 
 .bt-close {
-    .text{
-       display: none;
-     
+    .text {
+        display: none;
     }
     .cross::before {
         content: "\00d7";
@@ -37,4 +34,9 @@
 
 button:hover {
     cursor: pointer;
+}
+
+.bt-add {
+    margin-top: 3rem;
+    width: 100%;
 }

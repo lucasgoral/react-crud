@@ -10,9 +10,12 @@ const Accordion = ({ title, children }) => {
   };
 
   return (
-    <div className="accordion">
+    <div className={`accordion ${state.display ? "open" : "close"}`}>
       <button type="button" className="accordion__title" onClick={toggle}>
-        <h2>{title}</h2>
+        <h2>
+          {title}
+          <span className="accordion__arrow"> &#9654;</span>
+        </h2>
       </button>
       <div
         className="accordion__wrapper"

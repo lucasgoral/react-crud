@@ -1,28 +1,42 @@
 .accordion {
-    
     overflow-y: auto;
     &__title {
-        display:block;
+        display: block;
         width: 100%;
         border: 0;
         background: transparent;
         text-align: left;
         border: 1rem;
-        border-bottom: 1px solid rgba(0,0,0,0.2);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
         padding: 1rem 2rem;
-        margin-bottom:0;
-        
+        margin-bottom: 0;
+        position: relative;
         h2 {
             margin-top: 0;
             margin-bottom: 0;
             color: #color01;
         }
         &:hover {
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
         }
     }
     &__wrapper {
         overflow: hidden;
- 
+    }
+    &__child {
+        margin-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    &__arrow {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(0, 0, 0, 0.5);
+        transition: transform 0.2s ease;
+        font-size: 0.75rem;
+    }
+    &.open .accordion__arrow {
+        transform: translateY(-50%) rotate(90deg);
     }
 }

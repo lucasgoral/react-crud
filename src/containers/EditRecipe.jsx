@@ -23,12 +23,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const EditRecipe = ({ itemId, editItem, recipesList }) => {
+const EditRecipe = ({ itemId, editItem, recipesList, close }) => {
   const itemToEdit = recipesList.find(item => item.key === itemId);
-  console.log('itemtoedit')
-  console.log(itemId);
-  console.log(itemToEdit)
-  console.log('itemtoedit')
 
   const initialState = {
     title: itemToEdit.title,
@@ -40,11 +36,16 @@ const EditRecipe = ({ itemId, editItem, recipesList }) => {
   const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
+  const handleSubmit = e => {
+    e.preventDefault();
+    editItem(state.title, state.ingredients, state.key);
+    close();
+  };
   return (
     <div>
       Add recipe
       <p>{itemId}</p>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Add a Recipe</h2>
         <div>
           <h3>Recipe</h3>
@@ -64,13 +65,11 @@ const EditRecipe = ({ itemId, editItem, recipesList }) => {
           />
         </div>
 
-        <button
-          type="button"
-          onClick={() => {
-            editItem(state.title, state.ingredients, state.key);
-          }}
-        >
+        <button className="bt bt-good" type="submit" onClick={handleSubmit}>
           Edit item
+        </button>
+        <button className="bt" type="submit" onClick={close}>
+          Close
         </button>
       </form>
     </div>
