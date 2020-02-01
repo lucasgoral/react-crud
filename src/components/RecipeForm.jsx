@@ -36,7 +36,7 @@ const RecipeForm = ({
         ingChanged: true
       });
     }
-    console.log(validation);
+  
    
   };
   const validAndHandleCHnage = e => {
