@@ -1,5 +1,6 @@
 .accordion {
-    margin-bottom: 1rem;
+    
+    overflow-y: auto;
     &__title {
         display:block;
         width: 100%;
@@ -8,8 +9,20 @@
         text-align: left;
         border: 1rem;
         border-bottom: 1px solid rgba(0,0,0,0.2);
+        padding: 1rem 2rem;
+        margin-bottom:0;
+        
+        h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #color01;
+        }
+        &:hover {
+            background: rgba(0,0,0,0.05);
+        }
     }
     &__wrapper {
         overflow: hidden;
+ 
     }
 }

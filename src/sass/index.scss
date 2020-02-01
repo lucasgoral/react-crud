@@ -7,15 +7,18 @@ $color02: #E97F02;
 $color03: #F8CA00;
 $danger: #BD1550;
 $good: rgb(83, 155, 15);
+$max-mobile: 1280px;
+$min-desktop: 1281px;
 
 
 body {
     margin: 0;
-    padding: 4rem;
+    padding: 1rem;
 font-family: 'Source Sans Pro', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
         overflow-y: scroll;
+        background: rgba(0,0,0,0.05);
   
   }
 
