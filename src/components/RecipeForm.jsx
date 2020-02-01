@@ -57,15 +57,15 @@ const RecipeForm = ({
   return (
     <div>
       <form action="post">
-        <h2> {edit ? "Edit the recipe" : "Add a recipe"} </h2>{" "}
+        <h2> {edit ? "Edit the recipe" : "Add a recipe"} </h2>
         <div>
-          <h3> Recipe title </h3>{" "}
+          <h3> Recipe title </h3>
           <input
             type="text"
             name="title"
             onChange={validAndHandleCHnage}
             value={title}
-          />{" "}
+          />
           <p
             className="error"
             style={{
@@ -73,16 +73,16 @@ const RecipeForm = ({
                 !validation.title && validation.titleChanged ? "block" : "none"
             }}
           >
-            Incorrect title{" "}
-          </p>{" "}
-        </div>{" "}
+            Incorrect title
+          </p>
+        </div>
         <div>
-          <h3> Ingredients </h3>{" "}
+          <h3> Ingredients </h3>
           <textarea
             name="ingredients"
             onChange={validAndHandleCHnage}
             value={ingredients}
-          />{" "}
+          />
           <p
             className="error"
             style={{
@@ -92,21 +92,16 @@ const RecipeForm = ({
                   : "none"
             }}
           >
-            Incorrect ingredients list{" "}
-          </p>{" "}
-        </div>{" "}
-        <button
-          className="bt bt-good"
-          type="submit"
-          onClick={handleSubmit}
-          disabled={submitDisabled()}
-        >
-          {edit ? "Edit Item" : "Add item"}{" "}
-        </button>{" "}
+            Incorrect ingredients list
+          </p>
+        </div>
+        <button className="bt bt-good" type="button" onClick={handleSubmit}>
+          {edit ? "Edit Item" : "Add item"}
+        </button>
         <button type="button" className="bt" onClick={close}>
-          Close{" "}
-        </button>{" "}
-      </form>{" "}
+          Close
+        </button>
+      </form>
     </div>
   );
 };
