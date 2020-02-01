@@ -38,7 +38,7 @@ const AddRecipe = ({ addItem }) => {
           <h3>Ingredients</h3>
           <textarea ref={ingredientsInput} />
         </div>
-        <button
+        <button className="bt bt-good"
           type="button"
           onClick={() => {
             addItem(titleInput.current.value, ingredientsInput.current.value);

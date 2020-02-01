@@ -25,6 +25,10 @@ const mapDispatchToProps = dispatch => {
 
 const EditRecipe = ({ itemId, editItem, recipesList }) => {
   const itemToEdit = recipesList.find(item => item.key === itemId);
+  console.log('itemtoedit')
+  console.log(itemId);
+  console.log(itemToEdit)
+  console.log('itemtoedit')
 
   const initialState = {
     title: itemToEdit.title,

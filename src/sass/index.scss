@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
+$white: #FFF;
+$black: #222;
+$normalPadding: 2rem;
+$color01: #490A3D;
+$color02: #E97F02;
+$color03: #F8CA00;
+$danger: #BD1550;
+$good: rgb(83, 155, 15);
+
+
+body {
+    margin: 0;
+    padding: 4rem;
+font-family: 'Source Sans Pro', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-y: visible;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+@import './app.scss';
+@import './modal.scss';
+@import './buttons.scss';
+@import './lists.scss';
+@import './accordion.scss';

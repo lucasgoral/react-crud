@@ -1,0 +1,15 @@
+.accordion {
+    margin-bottom: 1rem;
+    &__title {
+        display:block;
+        width: 100%;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        border: 1rem;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+    &__wrapper {
+        overflow: hidden;
+    }
+}

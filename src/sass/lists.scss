@@ -1,0 +1,14 @@
+ul {
+    margin-bottom: 2rem;
+    list-style: none;
+    padding: 0;
+    li {
+        
+        border-bottom: rgba(0, 0, 0, 0.1) 1px solid ;
+        padding: 1rem;
+        padding-left: 0;
+        &:last-of-type {
+            border-bottom: 0;
+        }
+    }
+}

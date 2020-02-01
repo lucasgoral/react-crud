@@ -1,21 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { v1 } from "uuid";
+import Accordion from "../containers/Accordion";
 
 const RecipeItem = ({ title, ingredients, remove, edit }) => {
   return (
-    <div>
-      <h2>{title}</h2>
-      {ingredients.map(item => (
-        <li key={v1()}>{item}</li>
-      ))}
-      <button type="button" onClick={edit}>
-        Edit
-      </button>
-      <button type="button" onClick={remove}>
-        Remove
-      </button>
-    </div>
+    <Accordion title={title}>
+      <div>
+        <ul>
+          {ingredients.map(item => (
+            <li key={v1()}>{item}</li>
+          ))}
+        </ul>
+        <button type="button" className="bt" onClick={edit}>
+          Edit
+        </button>
+        <button className="bt bt-danger" type="button" onClick={remove}>
+          Remove
+        </button>
+      </div>
+    </Accordion>
   );
 };
 

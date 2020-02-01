@@ -29,15 +29,16 @@ const RecipesList = ({ recipesList, removeItem }) => {
   const [editorState, setEditorlState] = useState(initialModalState);
 
   const openAddItem = () => {
-    setEditorlState({ visible: true, editMode: false });
+    setEditorlState({ visible: true, editMode: false, itemId: "" });
   };
 
   const openEditItem = key => {
     setEditorlState({ visible: true, editMode: true, itemId: key });
   };
 
-  const close = () => {
-    alert("close");
+  const close = e => {
+    e.stopPropagation();
+    setEditorlState({ visible: false, editMode: false, itemId: "" });
   };
 
   return (
@@ -56,7 +57,7 @@ const RecipesList = ({ recipesList, removeItem }) => {
           }}
         />
       ))}
-      <button type="button" onClick={openAddItem}>
+      <button type="button" className="bt bt-good" onClick={openAddItem}>
         Add item
       </button>
       <Modal visible={editorState.visible} close={close}>
