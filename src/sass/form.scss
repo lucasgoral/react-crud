@@ -18,4 +18,8 @@ form {
         border: 1px solid rgba(0, 0, 0, 0.25);
         margin-bottom: 1rem;
     }
+    .error {
+        color: $danger;
+        margin-top: 0;
+    }
 }

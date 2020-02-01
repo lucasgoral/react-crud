@@ -36,10 +36,8 @@ const AddRecipe = ({ addItem, close }) => {
     e.preventDefault();
     const title = state.title.trim();
     const ingredients = strToArray(state.ingredients);
-    if (title.length > 0 && ingredients.length > 0) {
-      addItem(title, ingredients);
-      close();
-    }
+    addItem(title, ingredients);
+    close();
   };
 
   return (

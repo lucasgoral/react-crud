@@ -3,7 +3,7 @@
     color: $white;
     border: 0;
     background: $color01;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, background-color 0.4s;
     border-radius: 0.5rem;
     margin-bottom: 2rem;
     margin-top: 1rem;
@@ -39,4 +39,8 @@ button:hover {
 .bt-add {
     margin-top: 3rem;
     width: 100%;
+}
+
+.bt[disabled] {
+    background-color: $gray;
 }

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { strToArray } from "../utils";
 
 const RecipeForm = ({
   handleSubmit,
@@ -9,28 +10,88 @@ const RecipeForm = ({
   edit,
   close
 }) => {
+  const initialValidation = {
+    title: title.trim().length > 0,
+    ingredients: strToArray(ingredients).length > 0,
+    titleChanged: false,
+    ingChanged: false
+  };
+
+
+
+  const [validation, seValidation] = useState(initialValidation);
+  const validate = e => {
+    
+    if (e.target.name === "title") {
+      seValidation({
+        ...validation,
+        title: e.target.value.trim().length > 0,
+        titleChanged: true
+      });
+    }
+    if (e.target.name === "ingredients") {
+      seValidation({
+        ...validation,
+        ingredients: strToArray(e.target.value).length > 0,
+        ingChanged: true
+      });
+    }
+    console.log(validation);
+   
+  };
+  const validAndHandleCHnage = e => {
+    handleChange(e);
+    validate(e);
+  };
   return (
     <div>
       <form action="post">
         <h2>{edit ? "Edit the recipe" : "Add a recipe"}</h2>
         <div>
-          <h3>Recipe</h3>
+          <h3>Recipe title</h3>
           <input
             type="text"
             name="title"
-            onChange={handleChange}
+            onChange={validAndHandleCHnage}
             value={title}
           />
+          <p
+          className='error'
+           style={{
+              display:
+                !validation.title && validation.titleChanged ? "block" : "none"
+            }}
+          >
+            Incorrect title
+          </p>
         </div>
         <div>
           <h3>Ingredients</h3>
           <textarea
             name="ingredients"
-            onChange={handleChange}
+            onChange={validAndHandleCHnage}
             value={ingredients}
           />
+          <p
+            className="error"
+            style={{
+              display:
+                !validation.ingredients && validation.ingChanged ? "block" : "none"
+            }}
+          >
+            Incorrect ingredients list
+          </p>
         </div>
-        <button className="bt bt-good" type="submit" onClick={handleSubmit}>
+        <button
+          className="bt bt-good"
+          type="submit"
+          onClick={handleSubmit}
+          disabled={
+            validation.ingChanged && validation.titleChanged && validation.title && validation.ingredients
+              ? false
+              : true
+          }
+        >
           {edit ? "Edit Item" : "Add item"}
         </button>
         <button type="button" className="bt" onClick={close}>
