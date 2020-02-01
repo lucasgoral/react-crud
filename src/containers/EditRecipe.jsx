@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { EDIT_ITEM } from "../actions/Actions";
 import { strToArray } from "../utils";
+import RecipeForm from "../components/RecipeForm";
 
 const mapStateToProps = state => {
   const { recipesList } = state;
@@ -42,37 +43,14 @@ const EditRecipe = ({ itemId, editItem, recipesList, close }) => {
     close();
   };
   return (
-    <div>
-      Add recipe
-      <p>{itemId}</p>
-      <form onSubmit={handleSubmit}>
-        <h2>Add a Recipe</h2>
-        <div>
-          <h3>Recipe</h3>
-          <input
-            type="text"
-            name="title"
-            onChange={handleChange}
-            value={state.title}
-          />
-        </div>
-        <div>
-          <h3>Ingredients</h3>
-          <textarea
-            name="ingredients"
-            onChange={handleChange}
-            value={state.ingredients}
-          />
-        </div>
-
-        <button className="bt bt-good" type="submit" onClick={handleSubmit}>
-          Edit item
-        </button>
-        <button className="bt" type="submit" onClick={close}>
-          Close
-        </button>
-      </form>
-    </div>
+    <RecipeForm
+      handleSubmit={handleSubmit}
+      handleChange={handleChange}
+      title={state.title}
+      ingredients={state.ingredients}
+      edit={true}
+      close={close}
+    />
   );
 };
 

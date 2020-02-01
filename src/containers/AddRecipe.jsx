@@ -3,6 +3,7 @@ import { v1 } from "uuid";
 import { connect } from "react-redux";
 import { ADD_ITEM } from "../actions/Actions";
 import { strToArray } from "../utils";
+import RecipeForm from "../components/RecipeForm";
 
 const mapStateToProps = state => {
   const { recipesList } = state;
@@ -42,32 +43,14 @@ const AddRecipe = ({ addItem, close }) => {
   };
 
   return (
-    <div>
-      Add recipe
-      <form>
-        <h2>Add a Recipe</h2>
-        <div>
-          <h3>Recipe</h3>
-          <input
-            type="text"
-            name="title"
-            onChange={handleChange}
-            value={state.title}
-          />
-        </div>
-        <div>
-          <h3>Ingredients</h3>
-          <textarea
-            name="ingredients"
-            onChange={handleChange}
-            value={state.ingredients}
-          />
-        </div>
-        <button className="bt bt-good" type="submit" onClick={handleSubmit}>
-          Add item
-        </button>
-      </form>
-    </div>
+    <RecipeForm
+      handleSubmit={handleSubmit}
+      handleChange={handleChange}
+      title={state.title}
+      ingredients={state.ingredients}
+      edit={false}
+      close={close}
+    />
   );
 };
 
