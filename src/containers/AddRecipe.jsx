@@ -15,15 +15,28 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: ADD_ITEM,
         title,
-        ingredients: strToArray(ingredients),
+        ingredients: ingredients,
         key: v1()
       })
   };
 };
 
+
+
 const AddRecipe = ({ addItem }) => {
   const titleInput = useRef();
   const ingredientsInput = useRef();
+  
+const onAddClick =  () => {
+
+  const title = titleInput.current.value.trim();
+  const ingredients = strToArray(ingredientsInput.current.value)
+  if(title.length > 0 && ingredients.length > 0) {
+    console.log(ingredients.length)
+    console.log(ingredients);
+  addItem(title, ingredients);
+  }
+}
 
   return (
     <div>
@@ -40,9 +53,7 @@ const AddRecipe = ({ addItem }) => {
         </div>
         <button className="bt bt-good"
           type="button"
-          onClick={() => {
-            addItem(titleInput.current.value, ingredientsInput.current.value);
-          }}
+          onClick={onAddClick}
         >
           Add item
         </button>

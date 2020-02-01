@@ -7,7 +7,7 @@ import Modal from "../components/Modal";
 import { REMOVE_ITEM } from "../actions/Actions";
 
 const mapStateToProps = state => {
-  console.log(state);
+
   const { recipesList } = state;
   return { recipesList };
 };
