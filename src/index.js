@@ -8,9 +8,18 @@ import './sass/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import  rootReducer  from './reducers';
-
-const store = createStore(rootReducer
+import {loadState, saveState} from './utils/localStorage'
+import throttle from 'lodash/throttle';
+const persistedState = loadState();
+const store = createStore(rootReducer, persistedState
   );
+  store.subscribe(() => {
+    store.subscribe(throttle(() => {
+  saveState({
+    recipesList: store.getState().recipesList
+  });
+    }, 1000))
+});
   
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

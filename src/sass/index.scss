@@ -15,9 +15,10 @@ body {
 font-family: 'Source Sans Pro', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-y: visible;
-  }
+        overflow-y: scroll;
   
+  }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
