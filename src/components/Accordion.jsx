@@ -14,7 +14,7 @@ const Accordion = ({ title, children }) => {
       <button type="button" className="accordion__title" onClick={toggle}>
         <h2>
           {title}
-          <span className="accordion__arrow">></span>
+          <span className="accordion__arrow"></span>
         </h2>
       </button>
       <div
