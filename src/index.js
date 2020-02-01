@@ -14,22 +14,20 @@ import { loadState, saveState } from "./utils/localStorage";
 const persistedState = loadState();
 const store = createStore(rootReducer, persistedState);
 store.subscribe(() => {
-    store.subscribe(
-        throttle(() => {
-            saveState({
-                recipesList: store.getState().recipesList
-            });
-        }, 1000)
-    );
+  store.subscribe(
+    throttle(() => {
+      saveState({
+        recipesList: store.getState().recipesList
+      });
+    }, 1000)
+  );
 });
 
-ReactDOM.render( <
-    Provider store = { store } >
-    <
-    App / >
-    <
-    /Provider>,
-    document.getElementById("root")
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

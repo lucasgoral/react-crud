@@ -13,7 +13,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     editItem: (title, ingredients, key) => {
-      console.log(ingredients);
       dispatch({
         type: EDIT_ITEM,
         title,

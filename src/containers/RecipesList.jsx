@@ -16,10 +16,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 const RecipesList = ({ recipesList, removeItem }) => {
-  // eslint-disable-next-line no-console
-  console.log(recipesList);
-  // eslint-disable-next-line no-console
-
   const initialModalState = {
     visible: false,
     editMode: false,

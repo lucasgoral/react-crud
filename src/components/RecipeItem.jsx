@@ -12,13 +12,12 @@ const RecipeItem = ({ title, ingredients, remove, edit }) => {
             <li key={v1()}>{item}</li>
           ))}
         </ul>
-               <button className="bt bt-danger" type="button" onClick={remove}>
+        <button className="bt bt-danger" type="button" onClick={remove}>
           Remove
         </button>
         <button type="button" className="bt" onClick={edit}>
           Edit
         </button>
- 
       </div>
     </Accordion>
   );
