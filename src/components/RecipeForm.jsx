@@ -95,7 +95,11 @@ const RecipeForm = ({
             Incorrect ingredients list
           </p>
         </div>
-        <button className="bt bt-good" type="button" onClick={handleSubmit}>
+        <button
+          className={`bt  ${submitDisabled() ? "bt-good" : "bt-disabled"}`}
+          type="button"
+          onClick={handleSubmit}
+        >
           {edit ? "Edit Item" : "Add item"}
         </button>
         <button type="button" className="bt" onClick={close}>
