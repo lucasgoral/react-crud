@@ -56,7 +56,7 @@ const RecipeForm = ({
   };
   return (
     <div>
-      <form action="post">
+      <form>
         <h2> {edit ? "Edit the recipe" : "Add a recipe"} </h2>
         <div>
           <h3> Recipe title </h3>
@@ -65,6 +65,7 @@ const RecipeForm = ({
             name="title"
             onChange={validAndHandleCHnage}
             value={title}
+            placeholder="Recipe title"
           />
           <p
             className="error"
@@ -82,6 +83,7 @@ const RecipeForm = ({
             name="ingredients"
             onChange={validAndHandleCHnage}
             value={ingredients}
+            placeholder="List of ingredients separated by comma e.g. apple, banana, pear"
           />
           <p
             className="error"
