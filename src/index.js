@@ -1,6 +1,5 @@
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
-import { throttle } from "lodash";
 import React from "react";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -15,11 +14,11 @@ const persistedState = loadState();
 const store = createStore(rootReducer, persistedState);
 store.subscribe(() => {
   store.subscribe(
-    throttle(() => {
+    () => {
       saveState({
         recipesList: store.getState().recipesList
       });
-    }, 1000)
+    }
   );
 });
 
