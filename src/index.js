@@ -12,15 +12,15 @@ import { loadState, saveState } from "./utils/localStorage";
 
 const persistedState = loadState();
 const store = createStore(rootReducer, persistedState);
-store.subscribe(() => {
-  store.subscribe(
-    () => {
-      saveState({
-        recipesList: store.getState().recipesList
-      });
-    }
-  );
-});
+store.subscribe(
+
+  () => {
+    saveState({
+      recipesList: store.getState().recipesList
+    });
+  }
+
+);
 
 ReactDOM.render(
   <Provider store={store}>
